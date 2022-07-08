@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioPorDuracao" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d17836c5-1e29-4697-a194-0bccdeb4ef31">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (6)"/>
+	<parameter name="duracao" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT codFilme, titulo, duracao FROM FILME
+WHERE duracao >= $P{duracao}]]>
+	</queryString>
+	<field name="codFilme" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="codFilme"/>
+		<property name="com.jaspersoft.studio.field.label" value="codFilme"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="FILME"/>
+	</field>
+	<field name="titulo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="titulo"/>
+		<property name="com.jaspersoft.studio.field.label" value="titulo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="FILME"/>
+	</field>
+	<field name="duracao" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="duracao"/>
+		<property name="com.jaspersoft.studio.field.label" value="duracao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="FILME"/>
+	</field>
+	<group name="codFilme">
+		<groupExpression><![CDATA[$F{codFilme}]]></groupExpression>
+	</group>
+	<group name="titulo">
+		<groupExpression><![CDATA[$F{titulo}]]></groupExpression>
+	</group>
+	<group name="duracao">
+		<groupExpression><![CDATA[$F{duracao}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="70" y="20" width="412" height="30" uuid="d1e55ea2-1c9c-4104-98f0-c4a9b25c0e20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Bitstream Charter" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Filmes por Duração]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="20" width="100" height="20" uuid="b9909371-ff83-4d42-aa54-884583dcd6d5"/>
+				<textElement textAlignment="Left">
+					<font fontName="Bitstream Charter" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="20" width="290" height="20" uuid="ab23bbe2-b49f-4f98-8263-6b653c344c9a"/>
+				<textElement textAlignment="Left">
+					<font fontName="Bitstream Charter" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Título]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="15" width="135" height="30" uuid="cb5bf04f-865b-4dbd-ac5f-c34e7b72f3eb"/>
+				<textElement textAlignment="Left">
+					<font fontName="Bitstream Charter" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Duração]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="0" width="100" height="30" uuid="1a94a00e-6c41-40bd-aa9d-6343e852120a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{codFilme}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Group" evaluationGroup="duracao">
+				<reportElement x="120" y="0" width="290" height="30" uuid="70fb6291-8de4-4e6d-b69c-83c67ffb76c8"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="0" width="134" height="30" uuid="6a842d4c-fa8a-45d7-aed8-57bd8869ddcb"/>
+				<textFieldExpression><![CDATA[$F{duracao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

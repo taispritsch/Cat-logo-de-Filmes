@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioFilmesPorAvaliacao" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="69b62fcf-a449-4346-b662-c5f29e8063b3">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (7)"/>
+	<parameter name="avaliacao" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT codFilme, titulo, avaliacao FROM FILME
+WHERE avaliacao =  $P{avaliacao}]]>
+	</queryString>
+	<field name="codFilme" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="codFilme"/>
+		<property name="com.jaspersoft.studio.field.label" value="codFilme"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="FILME"/>
+	</field>
+	<field name="titulo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="titulo"/>
+		<property name="com.jaspersoft.studio.field.label" value="titulo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="FILME"/>
+	</field>
+	<field name="avaliacao" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="avaliacao"/>
+		<property name="com.jaspersoft.studio.field.label" value="avaliacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="FILME"/>
+	</field>
+	<group name="codFilme">
+		<groupExpression><![CDATA[$F{codFilme}]]></groupExpression>
+	</group>
+	<group name="titulo">
+		<groupExpression><![CDATA[$F{titulo}]]></groupExpression>
+	</group>
+	<group name="avaliacao">
+		<groupExpression><![CDATA[$F{avaliacao}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="70" y="20" width="430" height="30" uuid="b60d35d2-37c8-4b97-a0c7-fe0bc60382fd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Bitstream Charter" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Filmes por Avaliação]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="30" uuid="9202bedd-a35b-4fea-b55c-e991a2f746b2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8367d4ae-9a2d-4efc-b689-f594848d47d8"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Bitstream Charter" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="20" width="340" height="30" uuid="8ccada45-509a-488f-9d3e-37eb4761fe18">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5b5b182d-0717-471f-a9f5-047c9bf443ca"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Bitstream Charter" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Título]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="20" width="110" height="30" uuid="f21dc75f-9b14-4518-89d7-50e9c6d5a24d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="38e73afd-eb35-4de0-bf17-ba8d8cf5157f"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Bitstream Charter" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Avaliação]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="953fe1d5-cdfb-4908-b518-0caf34fb1bcc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8367d4ae-9a2d-4efc-b689-f594848d47d8"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{codFilme}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="340" height="30" uuid="c3ea3376-8961-4836-9a17-5123a343bac3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5b5b182d-0717-471f-a9f5-047c9bf443ca"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="0" width="110" height="30" uuid="5319a438-c517-4637-9e57-328344dba183">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="38e73afd-eb35-4de0-bf17-ba8d8cf5157f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{avaliacao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
